@@ -6,11 +6,13 @@
   <div class="container mt-4">
     <div class="d-flex justify-content-between mb-3">
       <div>
-        <select class="form-control">
-          <option>All</option>
-          <option>Income</option>
-          <option>Expense</option>
-        </select>
+        <form method="GET">
+          <select class="form-control" name="type" onchange="this.form.submit()">
+            <option value="">All</option>
+            <option value="Income" {% if request.GET.type == "Income" %}selected{% endif %}>Income</option>
+            <option value="Expense" {% if request.GET.type == "Expense" %}selected{% endif %}>Expense</option>
+          </select>
+        </form>
       </div>
 
       <div>
@@ -33,7 +35,7 @@
         </tr>
       </thead>
       <tbody>
-        {% for data in transdata%}
+        {% for data in data%}
         <tr >
           <td >{{data.date}}</td>
           <td class="text">{{data.amount}}</td>

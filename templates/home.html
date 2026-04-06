@@ -13,9 +13,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="{% static 'js/chart.js' %}" defer></script>
 </head>
 <body>
     <div class="header-bar">
@@ -43,7 +40,7 @@
           <div class="nav-icon">🔁</div>
           <div class="nav-label">Transactions</div>
         </a>
-        <a class="nav-item">
+        <a class="nav-item" href="{% url 'insights' %}">
           <div class="nav-icon">📈</div>
           <div class="nav-label">Insights</div>
         </a>
@@ -153,5 +150,8 @@
       </div>
     </div>
     {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{% static 'js/chart.js' %}" ></script>
+  {% block scripts %}{% endblock %}
 </body>
 </html>

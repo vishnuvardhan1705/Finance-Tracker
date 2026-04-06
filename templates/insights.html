@@ -1,0 +1,126 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block content %}
+<div class="main-content">
+  <div class="dashboard-header">
+    <div>
+      <h1 class="dashboard-title">Insights</h1>
+      <p class="dashboard-subtitle">
+        Analyze your spending and income patterns
+      </p>
+    </div>
+  </div>
+
+  <div class="container mt-4">
+    <div class="row">
+      
+      <!-- Monthly Spending Chart -->
+      <div class="col-12 col-md-6 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Monthly Spending</h5>
+            <canvas id="monthlySpendingChart" class="w-full h-64"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category Wise Expense -->
+      <div class="col-12 col-md-6 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Expenses by Category</h5>
+            <canvas id="categoryChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Income vs Expense -->
+      <div class="col-12 col-md-6 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Income vs Expense</h5>
+            <canvas id="incomeExpenseChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Savings Trend -->
+      <div class="col-12 col-md-6 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Savings Trend</h5>
+            <canvas id="savingsChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Chart JS -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  // Monthly Spending Chart
+  new Chart(document.getElementById("monthlySpendingChart"), {
+    type: 'bar',
+    data: {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+      datasets: [{
+        label: 'Expenses',
+        data: [500, 700, 400, 900, 650],
+        backgroundColor: '#4F46E5'
+      }]
+    }
+  });
+
+  // Category Chart
+  new Chart(document.getElementById("categoryChart"), {
+    type: 'pie',
+    data: {
+      labels: ['Food', 'Travel', 'Shopping', 'Bills'],
+      datasets: [{
+        data: [500, 300, 200, 400],
+        backgroundColor: ['#EF4444','#3B82F6','#10B981','#F59E0B']
+      }]
+    }
+  });
+
+  // Income vs Expense
+  new Chart(document.getElementById("incomeExpenseChart"), {
+    type: 'line',
+    data: {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+      datasets: [
+        {
+          label: 'Income',
+          data: [2000, 2200, 2100, 2500, 2400],
+          borderColor: '#10B981',
+          fill: false
+        },
+        {
+          label: 'Expense',
+          data: [1200, 1400, 1100, 1600, 1500],
+          borderColor: '#EF4444',
+          fill: false
+        }
+      ]
+    }
+  });
+
+  // Savings Chart
+  new Chart(document.getElementById("savingsChart"), {
+    type: 'doughnut',
+    data: {
+      labels: ['Saved', 'Spent'],
+      datasets: [{
+        data: [800, 1200],
+        backgroundColor: ['#22C55E','#EF4444']
+      }]
+    }
+  });
+
+});
+</script>
+{% endblock %}

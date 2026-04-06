@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.dashboard,name='dashboard'),
     path('transaction/',views.transactions, name='transactions'),
+    path('insights/', views.insights, name='insights'),
 ]
