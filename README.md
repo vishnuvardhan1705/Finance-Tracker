@@ -34,22 +34,17 @@ This project focuses on **frontend architecture, UI/UX design, and state managem
   - Amount
   - Category
   - Type (Income / Expense)
+  - State (Success/Failed)
 - Search transactions
 - Filter by type
-- Sort by date/amount
-
-### Role-Based UI
-- Viewer → Can only view data
-- Admin → Can add/edit/delete transactions
 
 ### Insights
-- Highest spending category
+- Savings
 - Monthly income vs expense comparison
-- Financial observations
+- Expense by Category
 
 ### Additional Features
 - Responsive design (Mobile + Desktop)
-- LocalStorage data persistence
 - Empty state handling
 - Clean and modern UI
 
@@ -64,26 +59,11 @@ This project focuses on **frontend architecture, UI/UX design, and state managem
 
 ---
 
-## Project Structure
-FINANCE_TRAKER/
-|--finance_dashboard/
-||--static/
-|||--css/
-|||--js/
-|
-|--data/
-|
-|--templates
-
-
----
-
 ## State Management Approach
 
 The application uses centralized state management to manage:
 - Transactions data
 - Filters and search
-- Selected user role (Admin / Viewer)
 
 This ensures:
 - Clean separation between UI and logic
@@ -107,24 +87,27 @@ The dashboard works with mock transaction data and performs:
 
 - Clean and readable layout
 - Responsive design for different screen sizes
-- Color coding:
-  - Income → Green
-  - Expense → Red
 - Handles edge cases:
   - No transactions
   - No search results
   - Empty charts
-  - Viewer role restrictions
 
 ---
-
 ## Screenshots
 
 ### Dashboard
 ![Dashboard](screenshots/Screenshot1.png)
 ![Dashboard](screenshots/Screenshot2.png)
-![Dashboard](screenshots/Screenshot4.png)
 
 ### Transactions
 ![Transactions](screenshots/Screenshot5.png)
-![Transactions](screenshots/Screenshot4.png)
+![Transactions](screenshots/Screenshot3.png)
+
+### Insights
+
+![Insights](screenshots/Screenshot6.png)
+![Insights](screenshots/Screenshot7.png)
+
+## Demo Video
+Watch the demo here
+https://1drv.ms/v/c/2d721db33fcdc856/IQACuEsRMWAERpOadjrXz0_-AYnqtZ2pWDJozKl5bns1aaI?e=24juwc
