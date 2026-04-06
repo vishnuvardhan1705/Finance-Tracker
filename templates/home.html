@@ -1,0 +1,157 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance-Tracker</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{% static 'js/chart.js' %}" defer></script>
+</head>
+<body>
+    <div class="header-bar">
+      <div class="header-container">
+        <div class="logo"><i class="fa-solid fa-landmark"></i></div>
+        <div class="header-name">Finance-Tracker</div>
+      </div>
+
+      <div class="header-actions">
+        <div class="search-bar">
+          <span>🔍</span>
+          <input type="text" placeholder="Search..." />
+        </div>
+        <div>🔔</div>        
+      </div>
+    </div>
+    <!-- Sidebar -->
+    <aside id="sidebar"> 
+      <div class="sidebar">
+        <a class="nav-item " href="{% url 'dashboard' %}">
+          <div class="nav-icon">📊</div>
+          <div class="nav-label">Dashboard</div>
+        </a>
+        <a class="nav-item" href="{% url 'transactions' %}">
+          <div class="nav-icon">🔁</div>
+          <div class="nav-label">Transactions</div>
+        </a>
+        <a class="nav-item">
+          <div class="nav-icon">📈</div>
+          <div class="nav-label">Insights</div>
+        </a>
+        <a class="nav-item">
+          <div class="nav-icon">⚙️</div>
+          <div class="nav-label">Settings</div>
+        </a>
+        <a class="nav-item">
+          <div class="logout-icon">➜]
+            <span class="nav-label">Logout</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+    <!-- Main Content -->
+     {% block content %}
+    <div class="main-content" id="sectionDashboard">
+      <!-- Dashboard Header -->
+      <div class="dashboard-header">
+        <div>
+          <h1 class="dashboard-title">Finance Overview</h1>
+          <p class="dashboard-subtitle">
+            Track your income and expense metrics
+          </p>
+        </div>
+
+        <div style="display: flex">
+          <div class="date-filter">
+            <input type="date" class="datebar">
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboard Grid -->
+      <div class="dashboard-grid">
+        <div class="container">
+          <div class="row g-4 mb-3">
+            <div class="col-6 col-md-3">
+              <div class="stat-card" style="background-color: rgb(165,165,241);">
+                <div class="stat-icon blue-gradient"><i class="fa-solid fa-suitcase"></i></div>
+                <h1 class="stat-title">Balance</h1>
+                <p class="stat-value">$4156 <span class="incom-icon">
+                  <i class="fa-solid fa-arrow-trend-up"></i></span>
+                </p>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="stat-card" style="background-color: rgb(160,242,160);">
+                <div class="stat-icon green-gradient"><i class="fa-solid fa-dollar-sign"></i></div>
+                <h1 class="stat-title">Income</h1>
+                <p class="stat-value">$3145 <span class="incom-icon">
+                  <i class="fa-solid fa-arrow-trend-down"></i></span>
+                </p>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="stat-card" style="background-color: rgb(193,158,226);">
+                <div class="stat-icon purple-gradient"><i class="fa-solid fa-dollar-sign"></i></div>
+                <h1 class="stat-title">Expenses</h1>
+                <p class="stat-value">$1556 <span class="incom-icon">
+                  <i class="fa-solid fa-arrow-trend-up"></i></span>
+                </p>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="stat-card" style="background-color: rgb(232,205,154);">
+                <div class="stat-icon orange-gradient"><i class="fa-solid fa-sack-dollar"></i></div>
+                <h1 class="stat-title">Savings</h1>
+                <p class="stat-value">$1589 <span class="incom-icon">
+                    <i class="fa-solid fa-arrow-trend-down"></i></span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Expenses Charts -->
+      <div class="chart-container">
+        <div class="container">
+          <div class="row gy-4">
+            <div class="col-12 col-md-4">
+              <div class="Expense-container">
+                  <div class="d-flex flex-row top">
+                    <h1 class="chart-title ">All Expenses</h1>
+                    <select name="period" id="period" class="period-table">
+                      <option value="Daily">Daily</option>
+                      <option value="Weekly">Weekly</option>
+                      <option value="Monthly">Monthly</option>
+                      <option value="Yearly">Yearly</option>
+                    </select>
+                  </div>
+                  <div class="chart-box ">
+                    <canvas id="financeChart" ></canvas>
+                  </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-8 ">
+              <div class="balance-container">
+                <h1 class="chart-title">Spending Analysis</h1>
+                <div class="chart-box ">
+                  <canvas id="balanceChart" class="w-full h-64"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,54 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<div class="main-content">
+  <h1 class="dashboard-title">Transactions</h1>
+  <div class="container mt-4">
+    <div class="d-flex justify-content-between mb-3">
+      <div>
+        <select class="form-control">
+          <option>All</option>
+          <option>Income</option>
+          <option>Expense</option>
+        </select>
+      </div>
+
+      <div>
+        <input type="text" class="form-control" placeholder="Search category">
+      </div>
+
+      <div>
+        <button class="btn btn-primary">Add Transaction</button>
+      </div>
+    </div>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Amount</th>
+          <th>Category</th>
+          <th>Type</th>
+          <th>State</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for data in transdata%}
+        <tr >
+          <td >{{data.date}}</td>
+          <td class="text">{{data.amount}}</td>
+          <td>{{data.category}}</td>
+          <td>{{data.type}}</td>
+          <td>{{data.state}}</td>
+          <td>
+            <button class="btn btn-sm btn-info">Edit</button>
+            <button class="btn btn-sm btn-danger">Delete</button>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+  </div>
+</div>
+{% endblock %}
