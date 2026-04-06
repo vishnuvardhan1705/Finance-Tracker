@@ -118,13 +118,6 @@ The dashboard works with mock transaction data and performs:
 
 ---
 
-## Setup Instructions
-
-### 1. Clone the repository
-```bash
-git clone https://github.com/vishnuvardhan1705/Finance-Tracker.git
-'''
-
 ## Screenshots
 
 ### Dashboard
