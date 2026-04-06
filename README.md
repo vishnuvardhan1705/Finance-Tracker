@@ -124,14 +124,3 @@ The dashboard works with mock transaction data and performs:
 ```bash
 git clone https://github.com/vishnuvardhan1705/Finance-Tracker.git
 cd Finance-Tracker
-
-## Screenshots
-
-### Dashboard
-![Dashboard](screenshots/screenshot1.png)
-![Dashboard](screenshots/screenshot2.png)
-![Dashboard](screenshots/screenshot4.png)
-
-### Transactions
-![Transactions](screenshots/screenshot5.png)
-![Transactions](screenshots/screenshot4.png)
