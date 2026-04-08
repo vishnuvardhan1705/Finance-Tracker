@@ -12,10 +12,7 @@ The Finance Dashboard allows users to:
 - Analyze spending trends over time
 - View category-wise expense breakdown
 - Explore and filter transactions
-- Switch between Admin and Viewer roles
 - View financial insights such as highest spending category and monthly comparison
-
-This project focuses on **frontend architecture, UI/UX design, and state management**, not backend development.
 
 ---
 
@@ -36,7 +33,6 @@ This project focuses on **frontend architecture, UI/UX design, and state managem
   - Type (Income / Expense)
   - State (Success/Failed)
 - Search transactions
-- Filter by type
 
 ### Insights
 - Savings
